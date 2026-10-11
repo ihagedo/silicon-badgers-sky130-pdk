@@ -1,0 +1,210 @@
+/* sky130_fd_sc_hd__phys.lib
+   Physical-only cells (fillers, well taps) present in the LEF but absent from the
+   characterized Liberty. make_views.sh merges these cell blocks into each corner
+   library before compiling the .db, so the ICC2 NDM includes them (required for
+   create_tap_cells and filler insertion). Areas from LEF SIZE; pg_pins match the LEF. */
+    cell ("sky130_fd_sc_hd__fill_1") {
+        area : 1.2512000000;
+        cell_footprint : "sky130_fd_sc_hd__fill";
+        is_filler_cell : true;
+        cell_leakage_power : 0.0000000000;
+        pg_pin ("VGND") {
+            pg_type : "primary_ground";
+            related_bias_pin : "VNB";
+            voltage_name : "VGND";
+        }
+        pg_pin ("VNB") {
+            pg_type : "pwell";
+            physical_connection : "device_layer";
+            voltage_name : "VNB";
+        }
+        pg_pin ("VPB") {
+            pg_type : "nwell";
+            physical_connection : "device_layer";
+            voltage_name : "VPB";
+        }
+        pg_pin ("VPWR") {
+            pg_type : "primary_power";
+            related_bias_pin : "VPB";
+            voltage_name : "VPWR";
+        }
+    }
+    cell ("sky130_fd_sc_hd__fill_2") {
+        area : 2.5024000000;
+        cell_footprint : "sky130_fd_sc_hd__fill";
+        is_filler_cell : true;
+        cell_leakage_power : 0.0000000000;
+        pg_pin ("VGND") {
+            pg_type : "primary_ground";
+            related_bias_pin : "VNB";
+            voltage_name : "VGND";
+        }
+        pg_pin ("VNB") {
+            pg_type : "pwell";
+            physical_connection : "device_layer";
+            voltage_name : "VNB";
+        }
+        pg_pin ("VPB") {
+            pg_type : "nwell";
+            physical_connection : "device_layer";
+            voltage_name : "VPB";
+        }
+        pg_pin ("VPWR") {
+            pg_type : "primary_power";
+            related_bias_pin : "VPB";
+            voltage_name : "VPWR";
+        }
+    }
+    cell ("sky130_fd_sc_hd__fill_4") {
+        area : 5.0048000000;
+        cell_footprint : "sky130_fd_sc_hd__fill";
+        is_filler_cell : true;
+        cell_leakage_power : 0.0000000000;
+        pg_pin ("VGND") {
+            pg_type : "primary_ground";
+            related_bias_pin : "VNB";
+            voltage_name : "VGND";
+        }
+        pg_pin ("VNB") {
+            pg_type : "pwell";
+            physical_connection : "device_layer";
+            voltage_name : "VNB";
+        }
+        pg_pin ("VPB") {
+            pg_type : "nwell";
+            physical_connection : "device_layer";
+            voltage_name : "VPB";
+        }
+        pg_pin ("VPWR") {
+            pg_type : "primary_power";
+            related_bias_pin : "VPB";
+            voltage_name : "VPWR";
+        }
+    }
+    cell ("sky130_fd_sc_hd__fill_8") {
+        area : 10.0096000000;
+        cell_footprint : "sky130_fd_sc_hd__fill";
+        is_filler_cell : true;
+        cell_leakage_power : 0.0000000000;
+        pg_pin ("VGND") {
+            pg_type : "primary_ground";
+            related_bias_pin : "VNB";
+            voltage_name : "VGND";
+        }
+        pg_pin ("VNB") {
+            pg_type : "pwell";
+            physical_connection : "device_layer";
+            voltage_name : "VNB";
+        }
+        pg_pin ("VPB") {
+            pg_type : "nwell";
+            physical_connection : "device_layer";
+            voltage_name : "VPB";
+        }
+        pg_pin ("VPWR") {
+            pg_type : "primary_power";
+            related_bias_pin : "VPB";
+            voltage_name : "VPWR";
+        }
+    }
+    cell ("sky130_fd_sc_hd__tap_1") {
+        area : 1.2512000000;
+        cell_footprint : "sky130_fd_sc_hd__tap";
+        cell_leakage_power : 0.0000000000;
+        pg_pin ("VGND") {
+            pg_type : "primary_ground";
+            related_bias_pin : "VNB";
+            voltage_name : "VGND";
+        }
+        pg_pin ("VNB") {
+            pg_type : "pwell";
+            physical_connection : "device_layer";
+            voltage_name : "VNB";
+        }
+        pg_pin ("VPB") {
+            pg_type : "nwell";
+            physical_connection : "device_layer";
+            voltage_name : "VPB";
+        }
+        pg_pin ("VPWR") {
+            pg_type : "primary_power";
+            related_bias_pin : "VPB";
+            voltage_name : "VPWR";
+        }
+    }
+    cell ("sky130_fd_sc_hd__tap_2") {
+        area : 2.5024000000;
+        cell_footprint : "sky130_fd_sc_hd__tap";
+        cell_leakage_power : 0.0000000000;
+        pg_pin ("VGND") {
+            pg_type : "primary_ground";
+            related_bias_pin : "VNB";
+            voltage_name : "VGND";
+        }
+        pg_pin ("VNB") {
+            pg_type : "pwell";
+            physical_connection : "device_layer";
+            voltage_name : "VNB";
+        }
+        pg_pin ("VPB") {
+            pg_type : "nwell";
+            physical_connection : "device_layer";
+            voltage_name : "VPB";
+        }
+        pg_pin ("VPWR") {
+            pg_type : "primary_power";
+            related_bias_pin : "VPB";
+            voltage_name : "VPWR";
+        }
+    }
+    cell ("sky130_fd_sc_hd__tapvgnd_1") {
+        area : 1.2512000000;
+        cell_footprint : "sky130_fd_sc_hd__tapvgnd";
+        cell_leakage_power : 0.0000000000;
+        pg_pin ("VGND") {
+            pg_type : "primary_ground";
+            voltage_name : "VGND";
+        }
+        pg_pin ("VPB") {
+            pg_type : "nwell";
+            physical_connection : "device_layer";
+            voltage_name : "VPB";
+        }
+        pg_pin ("VPWR") {
+            pg_type : "primary_power";
+            related_bias_pin : "VPB";
+            voltage_name : "VPWR";
+        }
+    }
+    cell ("sky130_fd_sc_hd__tapvgnd2_1") {
+        area : 1.2512000000;
+        cell_footprint : "sky130_fd_sc_hd__tapvgnd2";
+        cell_leakage_power : 0.0000000000;
+        pg_pin ("VGND") {
+            pg_type : "primary_ground";
+            voltage_name : "VGND";
+        }
+        pg_pin ("VPB") {
+            pg_type : "nwell";
+            physical_connection : "device_layer";
+            voltage_name : "VPB";
+        }
+        pg_pin ("VPWR") {
+            pg_type : "primary_power";
+            related_bias_pin : "VPB";
+            voltage_name : "VPWR";
+        }
+    }
+    cell ("sky130_fd_sc_hd__tapvpwrvgnd_1") {
+        area : 1.2512000000;
+        cell_footprint : "sky130_fd_sc_hd__tapvpwrvgnd";
+        cell_leakage_power : 0.0000000000;
+        pg_pin ("VGND") {
+            pg_type : "primary_ground";
+            voltage_name : "VGND";
+        }
+        pg_pin ("VPWR") {
+            pg_type : "primary_power";
+            voltage_name : "VPWR";
+        }
+    }
