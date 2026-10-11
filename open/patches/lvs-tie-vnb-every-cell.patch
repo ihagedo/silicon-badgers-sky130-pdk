@@ -1,0 +1,12 @@
+diff --git a/sky130hd/lvs/sky130hd.lylvs b/sky130hd/lvs/sky130hd.lylvs
+index 12eb8bf..4333d04 100644
+--- a/sky130hd/lvs/sky130hd.lylvs
++++ b/sky130hd/lvs/sky130hd.lylvs
+@@ -477,7 +477,6 @@ def find_net_by_name_component(circuit, component)
+ end
+ 
+ netlist.each_circuit do |c|
+-  next unless c.name == $top_cell
+   n_vnb = find_net_by_name_component(c, "VNB")
+   n_vss = find_net_by_name_component(c, "VSS")
+   c.join_nets(n_vnb, n_vss) if n_vnb &amp;&amp; n_vss &amp;&amp; n_vnb.name != n_vss.name
