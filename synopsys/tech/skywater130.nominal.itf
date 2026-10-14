@@ -1,0 +1,49 @@
+$ File:        skywater130.nominal.itf
+$ Description: StarRC interconnect technology (ITF) for SkyWater sky130, nominal, written from open
+$              sources only (see ../UPSTREAM.md). Layers top to bottom; heights in the comments are
+$              the bottom of each layer above the substrate surface. A planar dielectric above a
+$              conformal one starts at the conformal layer's top away from conductors and fills around them.
+$              Stack: SkyWater PDK docs, "Process Stack Diagram" (docs/_static/metal_stack.svg):
+$              thicknesses, heights, dielectric names and constants, except NILD3 and NILD5: their
+$              constants are the effective values of SkyWater's capacitance tables (docs/rules/rcx/
+$              capacitance-parallel.tsv): met1-met2 133.861 aF/um2 over 0.27 um -> 4.08 (diagram 4.5),
+$              met3-met4 84.0346 aF/um2 over 0.39 um -> 3.70 (diagram 4.1). Sheet and via resistance:
+$              SkyWater PDK docs, rules/rcx/resistance-values.tsv (mcon: sky130_fd_sc_hd tech LEF).
+$              Minimum width and spacing: SkyWater periphery rules (rule IDs in the comments).
+$ License:     Apache-2.0
+
+TECHNOLOGY = sky130_open_nominal
+GLOBAL_TEMPERATURE = 25.0
+
+$ passivation above met5. Over met5: TOPOX 0.09 (sides 0.07), TOPNIT 0.54 (sides 0.4223).
+$ Away from met5 the diagram gives only the total, 0.3777; split here as TOPOX 0.09 + TOPNIT 0.2877 (assumption).
+$ PI1 (polyimide) reaches 11.8834 um.
+DIELECTRIC PI1     { THICKNESS=6.1346 ER=2.94 }                                        $ 5.7488
+DIELECTRIC TOPNIT  { MEASURED_FROM=TOPOX THICKNESS=0.2877 SW_T=0.4223 TW_T=0.54 ER=7.5 }
+DIELECTRIC TOPOX   { MEASURED_FROM=NILD6 THICKNESS=0.09 SW_T=0.07 TW_T=0.09 ER=3.9 }   $ 5.3711
+CONDUCTOR  met5    { THICKNESS=1.26 WMIN=1.6 SMIN=1.6 RPSQ=0.029 }                     $ 5.3711; m5.1, m5.2
+DIELECTRIC NILD6   { THICKNESS=1.35 ER=4.0 }                                           $ 4.0211
+CONDUCTOR  met4    { THICKNESS=0.845 WMIN=0.3 SMIN=0.3 RPSQ=0.047 }                    $ 4.0211; m4.1, m4.2
+DIELECTRIC NILD5   { THICKNESS=1.235 ER=3.70 }                                         $ 2.7861
+CONDUCTOR  met3    { THICKNESS=0.845 WMIN=0.3 SMIN=0.3 RPSQ=0.047 }                    $ 2.7861; m3.1, m3.2
+DIELECTRIC NILD4   { THICKNESS=0.779 ER=4.2 }                                          $ 2.0071 (on NILD4_C)
+$ NILD4_C: 0.03 on the met2 sidewalls (0.001 elsewhere: grdgenxo needs a thickness)
+DIELECTRIC NILD4_C { MEASURED_FROM=NILD3 THICKNESS=0.001 SW_T=0.03 TW_T=0 ER=3.5 }     $ 2.0061
+CONDUCTOR  met2    { THICKNESS=0.36 WMIN=0.14 SMIN=0.14 RPSQ=0.125 }                   $ 2.0061; m2.1, m2.2
+DIELECTRIC NILD3   { THICKNESS=0.629 ER=4.08 }                                         $ 1.3771 (on NILD3_C)
+$ NILD3_C: 0.03 on the met1 sidewalls (0.001 elsewhere: grdgenxo needs a thickness)
+DIELECTRIC NILD3_C { MEASURED_FROM=NILD2 THICKNESS=0.001 SW_T=0.03 TW_T=0 ER=3.5 }     $ 1.3761
+CONDUCTOR  met1    { THICKNESS=0.36 WMIN=0.14 SMIN=0.14 RPSQ=0.125 }                   $ 1.3761; m1.1, m1.2
+DIELECTRIC NILD2   { THICKNESS=0.365 ER=4.05 }                                         $ 1.0111
+$ LINT: 0.075 nitride liner over li1 (top and sides) and over PSG elsewhere
+DIELECTRIC LINT    { MEASURED_FROM=PSG THICKNESS=0.075 SW_T=0.075 TW_T=0.075 ER=7.3 }  $ 0.9361
+CONDUCTOR  li1     { THICKNESS=0.1 WMIN=0.17 SMIN=0.17 RPSQ=12.8 }                     $ 0.9361; li.1, li.3
+DIELECTRIC PSG     { THICKNESS=0.6099 ER=3.9 }                                         $ 0.3262
+DIELECTRIC FOX     { THICKNESS=0.3262 ER=3.9 }                                         $ 0 (substrate surface)
+
+$ vias: cut area from the periphery rules (ct.1, via.1a, via2.1a, via3.1, via4.1), resistance per cut
+VIA via4 { FROM=met4 TO=met5 AREA=0.64   RPV=0.38 }
+VIA via3 { FROM=met3 TO=met4 AREA=0.04   RPV=3.41 }
+VIA via2 { FROM=met2 TO=met3 AREA=0.04   RPV=3.41 }
+VIA via  { FROM=met1 TO=met2 AREA=0.0225 RPV=4.5 }
+VIA mcon { FROM=li1  TO=met1 AREA=0.0289 RPV=9.3 }

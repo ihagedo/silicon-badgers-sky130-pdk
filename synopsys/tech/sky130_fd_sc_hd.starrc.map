@@ -1,0 +1,17 @@
+* File:        sky130_fd_sc_hd.starrc.map
+* Description: StarRC MAPPING_FILE for skywater130.nominal.itf: LEF/DEF layer name -> ITF layer name.
+*              The LEF layers nwell, pwell and licon have no ITF layer (inside the cells only).
+* License:     Apache-2.0
+conducting_layers
+li1   li1
+met1  met1
+met2  met2
+met3  met3
+met4  met4
+met5  met5
+via_layers
+mcon  mcon
+via   via
+via2  via2
+via3  via3
+via4  via4

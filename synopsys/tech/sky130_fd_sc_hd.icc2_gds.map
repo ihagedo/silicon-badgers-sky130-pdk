@@ -1,0 +1,48 @@
+; File:        sky130_fd_sc_hd.icc2_gds.map
+; Description: IC Compiler II write_gds -layer_map for sky130_fd_sc_hd.tf: tf layer number -> sky130 GDS layer:datatype.
+;              Routing layers: wires on drawing (20), top-level pin shapes on pin (16), pin names on label (5); cuts on 44.
+;              GDS layer and datatype numbers: SkyWater PDK docs, rules/gds_layers.csv.
+; License:     Apache-2.0
+data 2 67:20 ; li1
+data 2:*:signal,port 67:16 ; li1 pin (signal)
+data 2:*:clock,port 67:16 ; li1 pin (clock)
+data 2:*:power,port 67:16 ; li1 pin (power)
+data 2:*:ground,port 67:16 ; li1 pin (ground)
+text 2 67:5 ; li1 label
+data 4 68:20 ; met1
+data 4:*:signal,port 68:16 ; met1 pin (signal)
+data 4:*:clock,port 68:16 ; met1 pin (clock)
+data 4:*:power,port 68:16 ; met1 pin (power)
+data 4:*:ground,port 68:16 ; met1 pin (ground)
+text 4 68:5 ; met1 label
+data 6 69:20 ; met2
+data 6:*:signal,port 69:16 ; met2 pin (signal)
+data 6:*:clock,port 69:16 ; met2 pin (clock)
+data 6:*:power,port 69:16 ; met2 pin (power)
+data 6:*:ground,port 69:16 ; met2 pin (ground)
+text 6 69:5 ; met2 label
+data 8 70:20 ; met3
+data 8:*:signal,port 70:16 ; met3 pin (signal)
+data 8:*:clock,port 70:16 ; met3 pin (clock)
+data 8:*:power,port 70:16 ; met3 pin (power)
+data 8:*:ground,port 70:16 ; met3 pin (ground)
+text 8 70:5 ; met3 label
+data 10 71:20 ; met4
+data 10:*:signal,port 71:16 ; met4 pin (signal)
+data 10:*:clock,port 71:16 ; met4 pin (clock)
+data 10:*:power,port 71:16 ; met4 pin (power)
+data 10:*:ground,port 71:16 ; met4 pin (ground)
+text 10 71:5 ; met4 label
+data 12 72:20 ; met5
+data 12:*:signal,port 72:16 ; met5 pin (signal)
+data 12:*:clock,port 72:16 ; met5 pin (clock)
+data 12:*:power,port 72:16 ; met5 pin (power)
+data 12:*:ground,port 72:16 ; met5 pin (ground)
+text 12 72:5 ; met5 label
+all 1 66:44 ; licon
+all 3 67:44 ; mcon
+all 5 68:44 ; via
+all 7 69:44 ; via2
+all 9 70:44 ; via3
+all 11 71:44 ; via4
+all 15 64:20 ; nwell
